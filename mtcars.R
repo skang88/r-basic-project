@@ -76,3 +76,28 @@ ggplot(mtcars_with_predictions, aes(x = wt, color = factor(cyl))) +
     color = "실린더 개수"
   ) +
   theme_minimal()
+
+# --- 콘솔 창(채팅창) 지우기 ---
+# R 콘솔을 깨끗하게 지웁니다.
+# RStudio에서 단축키 Ctrl + L을 누르는 것과 동일한 효과입니다.
+cat("\014")
+# --- 헬로 월드 출력 ---
+# 간단한 "Hello, World!" 메시지를 콘솔에 출력합니다.
+cat("Hello, World!\n")
+# --- 필요한 정보만 출력하도록 수정 ---
+# 스크립트 실행 시 불필요한 출력을 줄이고, 핵심 결과만 표시하도록 합니다.
+
+# 기존의 모든 cat() 및 summary() 호출을 주석 처리하거나 제거합니다.
+# 예를 들어, summary(model) 대신 필요한 통계량만 추출하여 출력할 수 있습니다.
+
+# 모델 요약 대신, R-squared 값과 각 변수의 계수만 출력합니다.
+cat("\n--- 다중 회귀분석 모델 핵심 요약 ---\n")
+cat("Adjusted R-squared: ", summary(model)$adj.r.squared, "\n")
+cat("Coefficients:\n")
+print(summary(model)$coefficients)
+
+# 시각화는 자동으로 플롯 창에 나타나므로 별도의 cat() 호출이 필요 없습니다.
+# 따라서, 시각화 관련 cat() 호출은 제거하거나 주석 처리합니다.
+
+# 최종적으로 콘솔에 "스크립트 실행 완료" 메시지를 출력합니다.
+cat("\n스크립트 실행 완료: mtcars 데이터 분석 및 시각화\n")
